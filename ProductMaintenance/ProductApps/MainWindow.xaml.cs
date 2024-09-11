@@ -42,10 +42,15 @@ namespace ProductApps
 
                 // Add delivery charge ($25)
                 decimal deliveryCharge = 25.00M;
-                decimal totalCharge = totalPayment + deliveryCharge;
 
-                // Display the total charge
-                TotalChargeTextBox.Text = totalCharge.ToString("C"); // Display as currency
+                // Add wrap charge ($5)
+                decimal wrapCharge = 5.00M;
+
+                // Calculate total charge after adding delivery and wrap charges
+                decimal totalCharge = totalPayment + deliveryCharge + wrapCharge;
+
+                // Display the total charge in the TotalChargeTextBox
+                totalChargeAfterWrapTextBox.Text = totalCharge.ToString("C"); // Display as currency
             }
             catch (FormatException)
             {
@@ -61,7 +66,7 @@ namespace ProductApps
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
-            TotalChargeTextBox.Text = "";
+            totalChargeAfterWrapTextBox.Text = "";
         }
 
         // Close Button Click Event
@@ -70,6 +75,7 @@ namespace ProductApps
             // Close the application
             this.Close();
         }
+
     }
-    
+
 }
